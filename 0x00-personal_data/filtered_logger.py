@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """log message obfuscated"""
-import os, logging, re
+import os
+import logging
+import re
 from typing import List, Tuple
 
 import mysql.connector

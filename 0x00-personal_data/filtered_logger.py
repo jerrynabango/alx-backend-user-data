@@ -8,7 +8,7 @@ from typing import List, Tuple
 import mysql.connector
 
 
-PII_FIELDS: Tuple[str] = ("name", "email", "phone", "ssn", "password")
+PII_FIELDS: Tuple[str] = ('name', 'email', 'phone', 'ssn', 'password')
 
 
 def filter_datum(

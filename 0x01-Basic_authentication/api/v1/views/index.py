@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Error handling and Requests"""
-
 from flask import jsonify, abort
 from api.v1.views import app_views
 

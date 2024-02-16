@@ -22,7 +22,6 @@ class BasicAuth(Auth):
             return None
         return ''.join(authorization_header.split('Basic ')[1:])
 
-
     def decode_base64_authorization_header(
         self, base64_authorization_header: str
     ) -> str:
@@ -38,7 +37,6 @@ class BasicAuth(Auth):
         except Exception:
             return None
 
-
     def extract_user_credentials(
         self, decoded_base64_authorization_header: str
     ) -> Tuple[str]:
@@ -51,7 +49,6 @@ class BasicAuth(Auth):
             return None, None
         credentials = decoded_base64_authorization_header.split(':')
         return credentials[0], ':'.join(credentials[1:])
-
 
     def user_object_from_credentials(
         self, user_email: str, user_pwd: str
@@ -69,7 +66,6 @@ class BasicAuth(Auth):
                 if user.is_valid_password(user_pwd):
                     return user
         return None
-
 
     def current_user(self, request=None) -> TypeVar('User'):
         """Loads the current_user object"""

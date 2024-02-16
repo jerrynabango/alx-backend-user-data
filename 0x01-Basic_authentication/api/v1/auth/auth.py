@@ -26,14 +26,12 @@ class Auth:
                     return False
         return True
 
-
     def authorization_header(self, request=None) -> str:
         """Extracts Authorization Header"""
         auth = request.headers.get('Authorization', None) if request else None
         if request is None or auth is None:
             return None
         return auth
-
 
     def current_user(self, request=None) -> TypeVar('User'):
         """Returns the currently authenticated user"""

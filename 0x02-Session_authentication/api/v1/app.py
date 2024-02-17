@@ -3,7 +3,7 @@
 from os import getenv
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request
-from flask_cors import (CORS, cross_origin)
+from flask_cors import CORS
 import os
 
 
@@ -52,12 +52,6 @@ def request_filter() -> str:
 def unauthorized(error) -> str:
     """ Handles unauthorized access errors."""
     return jsonify({"error": "Unauthorized"}), 401
-
-
-@app.errorhandler(403)
-def unauthorized(error) -> str:
-    """ Handles forbidden access errors."""
-    return jsonify({"error": "Forbidden"}), 403
 
 
 @app.errorhandler(404)

@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Route module for the API
-"""
+"""API."""
 from os import getenv
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request
@@ -34,8 +32,8 @@ elif auth_type == 'auth':
 
 
 @app.before_request
-def request() -> str:
-    """Intercepts requests to check for authentication requirements"""
+def request_filter() -> str:
+    """Checks if authentication is required for the requested path."""
     excluded_paths = ['/api/v1/status/', '/api/v1/unauthorized/',
                       '/api/v1/forbidden/', '/api/v1/auth_session/login/']
     if auth is not None and auth.require_auth(request.path, excluded_paths):
@@ -52,19 +50,19 @@ def request() -> str:
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
-    """error 401"""
+    """ Handles unauthorized access errors."""
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
 def unauthorized(error) -> str:
-    """error 403"""
+    """ Handles forbidden access errors."""
     return jsonify({"error": "Forbidden"}), 403
 
 
 @app.errorhandler(404)
 def not_found(error) -> str:
-    """error 404"""
+    """ Handles resource not found errors."""
     return jsonify({"error": "Not found"}), 404
 
 

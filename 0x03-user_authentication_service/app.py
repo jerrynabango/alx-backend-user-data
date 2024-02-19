@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """User Handling"""
-from flask import Flask, abort, jsonify, request, redirect, make_response
-
+from flask import (
+    Flask, abort, jsonify, request, redirect, make_response
+    )
 from auth import Auth
 
 AUTH = Auth()

@@ -56,15 +56,6 @@
         "documentation": {}
     },
     {
-        "label": "bcrypt",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "bcrypt",
-        "description": "bcrypt",
-        "detail": "bcrypt",
-        "documentation": {}
-    },
-    {
         "label": "NoResultFound",
         "importPath": "sqlalchemy.orm.exc",
         "description": "sqlalchemy.orm.exc",
@@ -110,6 +101,15 @@
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "bcrypt",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "bcrypt",
+        "description": "bcrypt",
+        "detail": "bcrypt",
         "documentation": {}
     },
     {
@@ -313,7 +313,7 @@
         "kind": 6,
         "importPath": "auth",
         "description": "auth",
-        "peekOfCode": "class Auth:\n    \"\"\"Auth class to interact with the authentication database.\n    \"\"\"\n    def __init__(self):\n        self._db = DB()\n    def register_user(self, email: str, password: str) -> User:\n        \"\"\"Register a new user\"\"\"\n        try:\n            user = self._db.find_user_by(email=email)\n        except NoResultFound:",
+        "peekOfCode": "class Auth:\n    \"\"\"Auth class to interact with the authentication database.\n    \"\"\"\n    def __init__(self):\n        self._db = DB()\n    def register_user(self, email: str, password: str) -> User:\n        \"\"\"Create new user if email doesn't exist\"\"\"\n        try:\n            user = self._db.find_user_by(email=email)\n        except NoResultFound:",
         "detail": "auth",
         "documentation": {}
     },

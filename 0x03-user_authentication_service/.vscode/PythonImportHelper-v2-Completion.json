@@ -331,7 +331,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def register_user(email: str, password: str) -> None:\n    \"\"\"Tests the registration endpoint\"\"\"\n    url = DOMAIN % \"users\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"email\": email, \"message\": \"User created\"}\n    res = requests.post(url, data=payload)\n    assert res.status_code == 200\n    assert res.json() == expected\n    expected = {\"message\": \"Email already registered\"}\n    res = requests.post(url, data=payload)",
+        "peekOfCode": "def register_user(email: str, password: str) -> None:\n    \"\"\"Test registration functionality\"\"\"\n    url = domain % \"users\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"email\": email, \"message\": \"user created\"}\n    res = requests.post(url, data=payload)\n    assert res.status_code == 200\n    assert res.json() == expected\n    expected = {\"message\": \"email already registered\"}\n    res = requests.post(url, data=payload)",
         "detail": "main",
         "documentation": {}
     },
@@ -340,7 +340,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def log_in_wrong_password(email: str, password: str) -> None:\n    \"\"\"Tests the login endpoint with incorrect password\"\"\"\n    url = DOMAIN % \"sessions\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"error\": \"Unauthorized\"}\n    res = requests.post(url, data=payload)\n    assert res.status_code == 401\n    assert res.json() == expected\n    assert res.cookies == {}\n    return res.cookies.get(\"session_id\", None)",
+        "peekOfCode": "def log_in_wrong_password(email: str, password: str) -> None:\n    \"\"\"Test login with incorrect password\"\"\"\n    url = domain % \"sessions\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"error\": \"Unauthorized\"}\n    res = requests.post(url, data=payload)\n    assert res.status_code == 401\n    assert res.json() == expected\n    assert res.cookies == {}\n    return res.cookies.get(\"session_id\", None)",
         "detail": "main",
         "documentation": {}
     },
@@ -349,7 +349,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def profile_unlogged() -> None:\n    \"\"\"Tests the profile route with an unlogged user\"\"\"\n    url = DOMAIN % \"profile\"\n    expected = {\"error\": \"Forbidden\"}\n    res = requests.get(url, cookies=dict())\n    assert res.status_code == 403\n    assert res.json() == expected\ndef log_in(email: str, password: str) -> str:\n    \"\"\"Tests login with valid credentials\"\"\"\n    url = DOMAIN % \"sessions\"",
+        "peekOfCode": "def profile_unlogged() -> None:\n    \"\"\"Test profile route for unlogged user\"\"\"\n    url = domain % \"profile\"\n    expected = {\"error\": \"Forbidden\"}\n    res = requests.get(url, cookies=dict())\n    assert res.status_code == 403\n    assert res.json() == expected\ndef log_in(email: str, password: str) -> str:\n    \"\"\"Test login functionality with valid credentials\"\"\"\n    url = domain % \"sessions\"",
         "detail": "main",
         "documentation": {}
     },
@@ -358,7 +358,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def log_in(email: str, password: str) -> str:\n    \"\"\"Tests login with valid credentials\"\"\"\n    url = DOMAIN % \"sessions\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"email\": \"%s\" % email, \"message\": \"Logged in\"}\n    res = requests.post(url, data=payload)\n    session_id = res.cookies.get(\"session_id\", None)\n    assert res.status_code == 200\n    assert res.json() == expected\n    assert session_id is not None",
+        "peekOfCode": "def log_in(email: str, password: str) -> str:\n    \"\"\"Test login functionality with valid credentials\"\"\"\n    url = domain % \"sessions\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"email\": \"%s\" % email, \"message\": \"logged in\"}\n    res = requests.post(url, data=payload)\n    session_id = res.cookies.get(\"session_id\", None)\n    assert res.status_code == 200\n    assert res.json() == expected\n    assert session_id is not None",
         "detail": "main",
         "documentation": {}
     },
@@ -367,7 +367,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def profile_logged(session_id: str) -> None:\n    \"\"\"Tests the profile route for a valid logged-in user\"\"\"\n    url = DOMAIN % \"profile\"\n    res = requests.get(url, cookies=dict(session_id=session_id))\n    assert res.status_code == 200\n    assert res.json().get(\"email\") is not None\ndef log_out(session_id: str) -> None:\n    \"\"\"Tests the logout call\"\"\"\n    url = DOMAIN % \"sessions\"\n    res = requests.delete(url, cookies=dict(session_id=session_id))",
+        "peekOfCode": "def profile_logged(session_id: str) -> None:\n    \"\"\"Test profile route for a valid logged-in user\"\"\"\n    url = domain % \"profile\"\n    res = requests.get(url, cookies=dict(session_id=session_id))\n    assert res.status_code == 200\n    assert res.json().get(\"email\") is not None\ndef log_out(session_id: str) -> None:\n    \"\"\"Test logout functionality\"\"\"\n    url = domain % \"sessions\"\n    res = requests.delete(url, cookies=dict(session_id=session_id))",
         "detail": "main",
         "documentation": {}
     },
@@ -376,7 +376,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def log_out(session_id: str) -> None:\n    \"\"\"Tests the logout call\"\"\"\n    url = DOMAIN % \"sessions\"\n    res = requests.delete(url, cookies=dict(session_id=session_id))\n    print(res.status_code)\n    assert res.status_code == 200\n    assert res.json() == {\"message\": \"Welcome\"}\ndef reset_password_token(email: str) -> str:\n    \"\"\"Tests the reset token route\"\"\"\n    url = DOMAIN % \"reset_password\"",
+        "peekOfCode": "def log_out(session_id: str) -> None:\n    \"\"\"Test logout functionality\"\"\"\n    url = domain % \"sessions\"\n    res = requests.delete(url, cookies=dict(session_id=session_id))\n    print(res.status_code)\n    assert res.status_code == 200\n    assert res.json() == {\"message\": \"Welcome\"}\ndef reset_password_token(email: str) -> str:\n    \"\"\"Test reset password token generation\"\"\"\n    url = domain % \"reset_password\"",
         "detail": "main",
         "documentation": {}
     },
@@ -385,7 +385,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def reset_password_token(email: str) -> str:\n    \"\"\"Tests the reset token route\"\"\"\n    url = DOMAIN % \"reset_password\"\n    res = requests.post(url, data={\"email\": email})\n    assert res.status_code == 200\n    reset_token = res.json().get(\"reset_token\")\n    assert isinstance(reset_token, str)\n    assert len(reset_token) > 0\n    return reset_token\ndef update_password(email: str, reset_token: str, new_password: str) -> None:",
+        "peekOfCode": "def reset_password_token(email: str) -> str:\n    \"\"\"Test reset password token generation\"\"\"\n    url = domain % \"reset_password\"\n    res = requests.post(url, data={\"email\": email})\n    assert res.status_code == 200\n    reset_token = res.json().get(\"reset_token\")\n    assert type(reset_token) == str\n    assert len(reset_token) > 0\n    return reset_token\ndef update_password(email: str, reset_token: str, new_password: str) -> None:",
         "detail": "main",
         "documentation": {}
     },
@@ -394,7 +394,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def update_password(email: str, reset_token: str, new_password: str) -> None:\n    \"\"\"Tests the password update route\"\"\"\n    url = DOMAIN % \"reset_password\"\n    payload = [\n        (\"email\", email),\n        (\"reset_token\", reset_token), (\"new_password\", new_password)]\n    expected = {\"email\": \"%s\" % email, \"message\": \"Password updated\"}\n    res = requests.put(url, data=payload)\n    assert res.status_code == 200\n    assert res.json() == expected",
+        "peekOfCode": "def update_password(email: str, reset_token: str, new_password: str) -> None:\n    \"\"\"Test password update functionality\"\"\"\n    url = domain % \"reset_password\"\n    payload = [\n        (\"email\", email),\n        (\"reset_token\", reset_token), (\"new_password\", new_password)]\n    expected = {\"email\": \"%s\" % email, \"message\": \"Password updated\"}\n    res = requests.put(url, data=payload)\n    assert res.status_code == 200\n    assert res.json() == expected",
         "detail": "main",
         "documentation": {}
     },
@@ -403,7 +403,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "EMAIL = \"guillaume@holberton.io\"\nPASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)",
+        "peekOfCode": "EMAIL = \"guillaume@holberton.io\"\nPASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    log_in(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)",
         "detail": "main",
         "documentation": {}
     },
@@ -412,7 +412,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "PASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)\n    reset_token = reset_password_token(EMAIL)",
+        "peekOfCode": "PASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    log_in(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)",
         "detail": "main",
         "documentation": {}
     },
@@ -421,7 +421,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "NEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)\n    reset_token = reset_password_token(EMAIL)\n    update_password(EMAIL, reset_token, NEW_PASSWD)",
+        "peekOfCode": "NEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    log_in(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)\n    reset_token = reset_password_token(EMAIL)",
         "detail": "main",
         "documentation": {}
     },

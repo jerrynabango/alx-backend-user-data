@@ -403,7 +403,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "EMAIL = \"guillaume@holberton.io\"\nPASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    log_in(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)",
+        "peekOfCode": "EMAIL = \"guillaume@holberton.io\"\nPASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)",
         "detail": "main",
         "documentation": {}
     },
@@ -412,7 +412,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "PASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    log_in(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)",
+        "peekOfCode": "PASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)\n    reset_token = reset_password_token(EMAIL)",
         "detail": "main",
         "documentation": {}
     },
@@ -421,7 +421,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "NEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    log_in(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)\n    reset_token = reset_password_token(EMAIL)",
+        "peekOfCode": "NEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)\n    reset_token = reset_password_token(EMAIL)\n    update_password(EMAIL, reset_token, NEW_PASSWD)",
         "detail": "main",
         "documentation": {}
     },

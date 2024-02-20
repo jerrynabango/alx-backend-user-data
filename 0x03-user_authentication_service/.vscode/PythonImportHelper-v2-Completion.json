@@ -422,7 +422,7 @@
         "kind": 6,
         "importPath": "user",
         "description": "user",
-        "peekOfCode": "class User(Base):\n    \"\"\"User\"\"\"\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True)\n    email = Column(String(250), nullable=False)\n    hashed_password = Column(String(250), nullable=False)\n    session_id = Column(String(250), nullable=True)\n    reset_token = Column(String(250), nullable=True)",
+        "peekOfCode": "class User(Base):\n    \"\"\"User model\"\"\"\n    __tablename__ = \"users\"\n    id = Column(Integer, autoincrement=\"auto\", primary_key=True)\n    email = Column(String(250), nullable=False)\n    hashed_password = Column(String(250), nullable=False)\n    session_id = Column(String(250))\n    reset_token = Column(String(250))",
         "detail": "user",
         "documentation": {}
     },
@@ -431,7 +431,7 @@
         "kind": 5,
         "importPath": "user",
         "description": "user",
-        "peekOfCode": "Base = declarative_base()\nclass User(Base):\n    \"\"\"User\"\"\"\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True)\n    email = Column(String(250), nullable=False)\n    hashed_password = Column(String(250), nullable=False)\n    session_id = Column(String(250), nullable=True)\n    reset_token = Column(String(250), nullable=True)",
+        "peekOfCode": "Base = declarative_base()\nclass User(Base):\n    \"\"\"User model\"\"\"\n    __tablename__ = \"users\"\n    id = Column(Integer, autoincrement=\"auto\", primary_key=True)\n    email = Column(String(250), nullable=False)\n    hashed_password = Column(String(250), nullable=False)\n    session_id = Column(String(250))\n    reset_token = Column(String(250))",
         "detail": "user",
         "documentation": {}
     }

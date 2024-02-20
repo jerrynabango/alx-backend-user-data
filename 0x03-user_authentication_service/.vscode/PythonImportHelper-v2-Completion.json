@@ -8,14 +8,6 @@
         "documentation": {}
     },
     {
-        "label": "abort",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "jsonify",
         "importPath": "flask",
         "description": "flask",
@@ -32,6 +24,14 @@
         "documentation": {}
     },
     {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "redirect",
         "importPath": "flask",
         "description": "flask",
@@ -40,7 +40,7 @@
         "documentation": {}
     },
     {
-        "label": "make_response",
+        "label": "abort",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -210,20 +210,20 @@
         "documentation": {}
     },
     {
-        "label": "unauthorized_401",
+        "label": "unauthorized",
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def unauthorized_401(error) -> str:\n    \"\"\"Unauthorized error handler\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized_403(error) -> str:\n    \"\"\"Forbidden error handler\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")\ndef home() -> str:\n    \"\"\"Home route\"\"\"",
+        "peekOfCode": "def unauthorized(error) -> str:\n    \"\"\"Handle unauthorized errors\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized(error) -> str:\n    \"\"\"Handle forbidden errors\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")\ndef home() -> str:\n    \"\"\"Home route\"\"\"",
         "detail": "app",
         "documentation": {}
     },
     {
-        "label": "unauthorized_403",
+        "label": "unauthorized",
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def unauthorized_403(error) -> str:\n    \"\"\"Forbidden error handler\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")\ndef home() -> str:\n    \"\"\"Home route\"\"\"\n    return jsonify({\"message\": \"Welcome\"})\n@app.route('/users', methods=['POST'], strict_slashes=False)\ndef users() -> str:\n    \"\"\"Register a new user\"\"\"",
+        "peekOfCode": "def unauthorized(error) -> str:\n    \"\"\"Handle forbidden errors\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")\ndef home() -> str:\n    \"\"\"Home route\"\"\"\n    return jsonify({\"message\": \"Welcome\"})\n@app.route(\"/users\", methods=['POST'], strict_slashes=False)\ndef users() -> str:\n    \"\"\"Register a new user\"\"\"",
         "detail": "app",
         "documentation": {}
     },
@@ -232,7 +232,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def home() -> str:\n    \"\"\"Home route\"\"\"\n    return jsonify({\"message\": \"Welcome\"})\n@app.route('/users', methods=['POST'], strict_slashes=False)\ndef users() -> str:\n    \"\"\"Register a new user\"\"\"\n    email, password = request.form.get('email'), request.form.get('password')\n    try:\n        user = AUTH.register_user(email, password)\n    except ValueError:",
+        "peekOfCode": "def home() -> str:\n    \"\"\"Home route\"\"\"\n    return jsonify({\"message\": \"Welcome\"})\n@app.route(\"/users\", methods=['POST'], strict_slashes=False)\ndef users() -> str:\n    \"\"\"Register a new user\"\"\"\n    email, password = request.form.get(\"email\"), request.form.get(\"password\")\n    try:\n        user = AUTH.register_user(email, password)\n    except ValueError:",
         "detail": "app",
         "documentation": {}
     },
@@ -241,7 +241,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def users() -> str:\n    \"\"\"Register a new user\"\"\"\n    email, password = request.form.get('email'), request.form.get('password')\n    try:\n        user = AUTH.register_user(email, password)\n    except ValueError:\n        return jsonify({\"message\": \"Email already registered\"}), 400\n    return jsonify({\"email\": \"%s\" % email, \"message\": \"User created\"})\n@app.route(\"/sessions\", methods=[\"POST\"], strict_slashes=False)\ndef login():",
+        "peekOfCode": "def users() -> str:\n    \"\"\"Register a new user\"\"\"\n    email, password = request.form.get(\"email\"), request.form.get(\"password\")\n    try:\n        user = AUTH.register_user(email, password)\n    except ValueError:\n        return jsonify({\"message\": \"email already registered\"}), 400\n    return jsonify({\"email\": \"%s\" % email, \"message\": \"user created\"})\n@app.route(\"/sessions\", methods=[\"POST\"], strict_slashes=False)\ndef login():",
         "detail": "app",
         "documentation": {}
     },
@@ -250,7 +250,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def login():\n    \"\"\"Login a valid user and set a session id\"\"\"\n    email, password = request.form.get('email'), request.form.get('password')\n    if AUTH.valid_login(email=email, password=password):\n        res = make_response(\n            jsonify({\"email\": \"%s\" % email, \"message\": \"Logged in\"}))\n        res.set_cookie(\"session_id\", AUTH.create_session(email))\n        return res\n    abort(401)\n@app.route(\"/sessions\", methods=[\"DELETE\"], strict_slashes=False)",
+        "peekOfCode": "def login():\n    \"\"\"Login and set a session id\"\"\"\n    email, password = request.form.get('email'), request.form.get('password')\n    if AUTH.valid_login(email=email, password=password):\n        res = make_response(\n            jsonify({\"email\": \"%s\" % email, \"message\": \"logged in\"}))\n        res.set_cookie(\"session_id\", AUTH.create_session(email))\n        return res\n    abort(401)\n@app.route(\"/sessions\", methods=[\"DELETE\"], strict_slashes=False)",
         "detail": "app",
         "documentation": {}
     },
@@ -259,7 +259,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def logout():\n    \"\"\"Logs out a login user\"\"\"\n    session_id = request.cookies.get(\"session_id\")\n    user = AUTH.get_user_from_session_id(session_id)\n    if user is not None:\n        AUTH.destroy_session(user.id)\n        return redirect(\"/\")\n    abort(403)\n@app.route(\"/profile\", strict_slashes=False)\ndef profile():",
+        "peekOfCode": "def logout():\n    \"\"\"Logout a user\"\"\"\n    session_id = request.cookies.get(\"session_id\")\n    user = AUTH.get_user_from_session_id(session_id)\n    if user is not None:\n        AUTH.destroy_session(user.id)\n        return redirect(\"/\")\n    abort(403)\n@app.route(\"/profile\", strict_slashes=False)\ndef profile():",
         "detail": "app",
         "documentation": {}
     },
@@ -268,7 +268,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def profile():\n    \"\"\"Gets and returns user profile\"\"\"\n    session_id = request.cookies.get(\"session_id\")\n    user = AUTH.get_user_from_session_id(session_id)\n    if user:\n        return jsonify({\"email\": user.email})\n    abort(403)\n@app.route(\"/reset_password\", methods=[\"POST\"], strict_slashes=False)\ndef get_reset_password_token():\n    \"\"\"Reset password route\"\"\"",
+        "peekOfCode": "def profile():\n    \"\"\"Get and return user profile\"\"\"\n    session_id = request.cookies.get(\"session_id\")\n    user = AUTH.get_user_from_session_id(session_id)\n    if user:\n        return jsonify({\"email\": user.email})\n    abort(403)\n@app.route(\"/reset_password\", methods=[\"POST\"], strict_slashes=False)\ndef get_reset_password_token():\n    \"\"\"Reset password\"\"\"",
         "detail": "app",
         "documentation": {}
     },
@@ -277,7 +277,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def get_reset_password_token():\n    \"\"\"Reset password route\"\"\"\n    email = request.form.get(\"email\")\n    try:\n        reset_token = AUTH.get_reset_password_token(email)\n    except ValueError:\n        abort(403)\n    return jsonify({\"email\": \"%s\" % email, \"reset_token\": \"%s\" % reset_token})\n@app.route(\"/reset_password\", methods=[\"PUT\"], strict_slashes=False)\ndef update_password():",
+        "peekOfCode": "def get_reset_password_token():\n    \"\"\"Reset password\"\"\"\n    email = request.form.get(\"email\")\n    try:\n        reset_token = AUTH.get_reset_password_token(email)\n    except ValueError:\n        abort(403)\n    return jsonify({\"email\": \"%s\" % email, \"reset_token\": \"%s\" % reset_token})\n@app.route(\"/reset_password\", methods=[\"PUT\"], strict_slashes=False)\ndef update_password():",
         "detail": "app",
         "documentation": {}
     },
@@ -286,7 +286,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def update_password():\n    \"\"\"Update password route\"\"\"\n    email = request.form.get(\"email\")\n    reset_token = request.form.get(\"reset_token\")\n    new_password = request.form.get(\"new_password\")\n    try:\n        AUTH.update_password(reset_token, new_password)\n        return jsonify({\"email\": \"%s\" % email, \"message\": \"Password updated\"})\n    except Exception:\n        pass",
+        "peekOfCode": "def update_password():\n    \"\"\"Update password\"\"\"\n    email = request.form.get(\"email\")\n    reset_token = request.form.get(\"reset_token\")\n    new_password = request.form.get(\"new_password\")\n    try:\n        AUTH.update_password(reset_token, new_password)\n        return jsonify({\"email\": \"%s\" % email, \"message\": \"Password updated\"})\n    except Exception:\n        pass",
         "detail": "app",
         "documentation": {}
     },
@@ -295,7 +295,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "AUTH = Auth()\napp = Flask(__name__)\n@app.errorhandler(401)\ndef unauthorized_401(error) -> str:\n    \"\"\"Unauthorized error handler\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized_403(error) -> str:\n    \"\"\"Forbidden error handler\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403",
+        "peekOfCode": "AUTH = Auth()\napp = Flask(__name__)\n@app.errorhandler(401)\ndef unauthorized(error) -> str:\n    \"\"\"Handle unauthorized errors\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized(error) -> str:\n    \"\"\"Handle forbidden errors\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403",
         "detail": "app",
         "documentation": {}
     },
@@ -304,7 +304,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\n@app.errorhandler(401)\ndef unauthorized_401(error) -> str:\n    \"\"\"Unauthorized error handler\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized_403(error) -> str:\n    \"\"\"Forbidden error handler\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")",
+        "peekOfCode": "app = Flask(__name__)\n@app.errorhandler(401)\ndef unauthorized(error) -> str:\n    \"\"\"Handle unauthorized errors\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized(error) -> str:\n    \"\"\"Handle forbidden errors\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")",
         "detail": "app",
         "documentation": {}
     },

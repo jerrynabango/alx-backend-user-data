@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-"""User Handling"""
-from flask import (
-    Flask, abort, jsonify, request, redirect, make_response
-    )
+"""User Auth Services"""
+from flask import Flask, jsonify, request, make_response, redirect, abort
 from auth import Auth
 
 AUTH = Auth()
@@ -11,14 +9,14 @@ app = Flask(__name__)
 
 
 @app.errorhandler(401)
-def unauthorized_401(error) -> str:
-    """Unauthorized error handler"""
+def unauthorized(error) -> str:
+    """Handle unauthorized errors"""
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
-def unauthorized_403(error) -> str:
-    """Forbidden error handler"""
+def unauthorized(error) -> str:
+    """Handle forbidden errors"""
     return jsonify({"error": "Forbidden"}), 403
 
 
@@ -28,24 +26,24 @@ def home() -> str:
     return jsonify({"message": "Welcome"})
 
 
-@app.route('/users', methods=['POST'], strict_slashes=False)
+@app.route("/users", methods=['POST'], strict_slashes=False)
 def users() -> str:
     """Register a new user"""
-    email, password = request.form.get('email'), request.form.get('password')
+    email, password = request.form.get("email"), request.form.get("password")
     try:
         user = AUTH.register_user(email, password)
     except ValueError:
-        return jsonify({"message": "Email already registered"}), 400
-    return jsonify({"email": "%s" % email, "message": "User created"})
+        return jsonify({"message": "email already registered"}), 400
+    return jsonify({"email": "%s" % email, "message": "user created"})
 
 
 @app.route("/sessions", methods=["POST"], strict_slashes=False)
 def login():
-    """Login a valid user and set a session id"""
+    """Login and set a session id"""
     email, password = request.form.get('email'), request.form.get('password')
     if AUTH.valid_login(email=email, password=password):
         res = make_response(
-            jsonify({"email": "%s" % email, "message": "Logged in"}))
+            jsonify({"email": "%s" % email, "message": "logged in"}))
         res.set_cookie("session_id", AUTH.create_session(email))
         return res
     abort(401)
@@ -53,7 +51,7 @@ def login():
 
 @app.route("/sessions", methods=["DELETE"], strict_slashes=False)
 def logout():
-    """Logs out a login user"""
+    """Logout a user"""
     session_id = request.cookies.get("session_id")
     user = AUTH.get_user_from_session_id(session_id)
     if user is not None:
@@ -64,7 +62,7 @@ def logout():
 
 @app.route("/profile", strict_slashes=False)
 def profile():
-    """Gets and returns user profile"""
+    """Get and return user profile"""
     session_id = request.cookies.get("session_id")
     user = AUTH.get_user_from_session_id(session_id)
     if user:
@@ -74,7 +72,7 @@ def profile():
 
 @app.route("/reset_password", methods=["POST"], strict_slashes=False)
 def get_reset_password_token():
-    """Reset password route"""
+    """Reset password"""
     email = request.form.get("email")
     try:
         reset_token = AUTH.get_reset_password_token(email)
@@ -85,7 +83,7 @@ def get_reset_password_token():
 
 @app.route("/reset_password", methods=["PUT"], strict_slashes=False)
 def update_password():
-    """Update password route"""
+    """Update password"""
     email = request.form.get("email")
     reset_token = request.form.get("reset_token")
     new_password = request.form.get("new_password")

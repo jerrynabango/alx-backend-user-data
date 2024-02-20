@@ -105,6 +105,38 @@
         "documentation": {}
     },
     {
+        "label": "TypeVar",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "InvalidRequestError",
+        "importPath": "sqlalchemy.exc",
+        "description": "sqlalchemy.exc",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.exc",
+        "documentation": {}
+    },
+    {
         "label": "create_engine",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -137,22 +169,6 @@
         "documentation": {}
     },
     {
-        "label": "declarative_base",
-        "importPath": "sqlalchemy.ext.declarative",
-        "description": "sqlalchemy.ext.declarative",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.ext.declarative",
-        "documentation": {}
-    },
-    {
-        "label": "declarative_base",
-        "importPath": "sqlalchemy.ext.declarative",
-        "description": "sqlalchemy.ext.declarative",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.ext.declarative",
-        "documentation": {}
-    },
-    {
         "label": "sessionmaker",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -169,15 +185,7 @@
         "documentation": {}
     },
     {
-        "label": "InvalidRequestError",
-        "importPath": "sqlalchemy.exc",
-        "description": "sqlalchemy.exc",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.exc",
-        "documentation": {}
-    },
-    {
-        "label": "Base",
+        "label": "User",
         "importPath": "user",
         "description": "user",
         "isExtraImport": true,
@@ -185,7 +193,7 @@
         "documentation": {}
     },
     {
-        "label": "User",
+        "label": "Base",
         "importPath": "user",
         "description": "user",
         "isExtraImport": true,
@@ -310,11 +318,11 @@
         "documentation": {}
     },
     {
-        "label": "DatabaseManager",
+        "label": "DB",
         "kind": 6,
         "importPath": "db",
         "description": "db",
-        "peekOfCode": "class DatabaseManager:\n    \"\"\"Database Management\"\"\"\n    def __init__(self) -> None:\n        \"\"\"Initialize DB Connection\"\"\"\n        self._engine = create_engine(\"sqlite:///a.db\", echo=False)\n        Base.metadata.drop_all(self._engine)\n        Base.metadata.create_all(self._engine)\n        self.__session = None\n    @property\n    def _session(self) -> Session:",
+        "peekOfCode": "class DB:\n    \"\"\"Database Interface\"\"\"\n    def __init__(self) -> None:\n        \"\"\"Initialize Database\"\"\"\n        self._engine = create_engine(\"sqlite:///a.db\", echo=False)\n        Base.metadata.drop_all(self._engine)\n        Base.metadata.create_all(self._engine)\n        self.__session = None\n    @property\n    def _session(self) -> Session:",
         "detail": "db",
         "documentation": {}
     },

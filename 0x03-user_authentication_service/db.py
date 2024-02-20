@@ -1,21 +1,20 @@
-#!/usr/bin/env python3
-"""Create ,Find and Update user"""
-
-from sqlalchemy import create_engine
+"""Database Module"""
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 from sqlalchemy.orm.exc import NoResultFound
-from sqlalchemy.exc import InvalidRequestError
 
-from user import Base, User
+from user import User, Base
+
+from typing import TypeVar
 
 
-class DatabaseManager:
-    """Database Management"""
-
+class DB:
+    """Database Interface"""
     def __init__(self) -> None:
-        """Initialize DB Connection"""
+        """Initialize Database"""
         self._engine = create_engine("sqlite:///a.db", echo=False)
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
@@ -23,23 +22,23 @@ class DatabaseManager:
 
     @property
     def _session(self) -> Session:
-        """Get Session"""
+        """Cached Session Object"""
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
         return self.__session
 
     def add_user(self, email: str, hashed_password: str) -> User:
-        """Add a New User to the DB"""
+        """Add New User"""
         user = User(email=email, hashed_password=hashed_password)
         self._session.add(user)
         self._session.commit()
         return user
 
     def find_user_by(self, **kwargs) -> User:
-        """Find User Based on Given Attributes"""
-        for key in kwargs:
-            if not hasattr(User, key):
+        """Find User by Attributes"""
+        for k in kwargs:
+            if not hasattr(User, k):
                 raise InvalidRequestError
         user = self._session.query(User).filter_by(**kwargs).first()
         if user is None:
@@ -47,11 +46,11 @@ class DatabaseManager:
         return user
 
     def update_user(self, user_id: int, **kwargs) -> None:
-        """Update an User's Information"""
-        user = self.find_user_by_attributes(id=user_id)
-        for key, value in kwargs.items():
-            if hasattr(user, key):
-                setattr(user, key, value)
+        """Update Existing User"""
+        user = self.find_user_by(id=user_id)
+        for k, v in kwargs.items():
+            if hasattr(user, k):
+                setattr(user, k, v)
             else:
                 raise ValueError
         self.__session.add(user)

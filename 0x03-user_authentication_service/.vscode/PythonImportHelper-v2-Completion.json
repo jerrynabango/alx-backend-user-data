@@ -1,0 +1,438 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Auth",
+        "importPath": "auth",
+        "description": "auth",
+        "isExtraImport": true,
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "bcrypt",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "bcrypt",
+        "description": "bcrypt",
+        "detail": "bcrypt",
+        "documentation": {}
+    },
+    {
+        "label": "NoResultFound",
+        "importPath": "sqlalchemy.orm.exc",
+        "description": "sqlalchemy.orm.exc",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm.exc",
+        "documentation": {}
+    },
+    {
+        "label": "NoResultFound",
+        "importPath": "sqlalchemy.orm.exc",
+        "description": "sqlalchemy.orm.exc",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm.exc",
+        "documentation": {}
+    },
+    {
+        "label": "DB",
+        "importPath": "db",
+        "description": "db",
+        "isExtraImport": true,
+        "detail": "db",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "db",
+        "description": "db",
+        "isExtraImport": true,
+        "detail": "db",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm.session",
+        "description": "sqlalchemy.orm.session",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm.session",
+        "documentation": {}
+    },
+    {
+        "label": "InvalidRequestError",
+        "importPath": "sqlalchemy.exc",
+        "description": "sqlalchemy.exc",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.exc",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "user",
+        "description": "user",
+        "isExtraImport": true,
+        "detail": "user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "user",
+        "description": "user",
+        "isExtraImport": true,
+        "detail": "user",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "unauthorized_401",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def unauthorized_401(error) -> str:\n    \"\"\"Unauthorized error handler\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized_403(error) -> str:\n    \"\"\"Forbidden error handler\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")\ndef home() -> str:\n    \"\"\"Home route\"\"\"",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "unauthorized_403",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def unauthorized_403(error) -> str:\n    \"\"\"Forbidden error handler\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")\ndef home() -> str:\n    \"\"\"Home route\"\"\"\n    return jsonify({\"message\": \"Welcome\"})\n@app.route('/users', methods=['POST'], strict_slashes=False)\ndef users() -> str:\n    \"\"\"Register a new user\"\"\"",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def home() -> str:\n    \"\"\"Home route\"\"\"\n    return jsonify({\"message\": \"Welcome\"})\n@app.route('/users', methods=['POST'], strict_slashes=False)\ndef users() -> str:\n    \"\"\"Register a new user\"\"\"\n    email, password = request.form.get('email'), request.form.get('password')\n    try:\n        user = AUTH.register_user(email, password)\n    except ValueError:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "users",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def users() -> str:\n    \"\"\"Register a new user\"\"\"\n    email, password = request.form.get('email'), request.form.get('password')\n    try:\n        user = AUTH.register_user(email, password)\n    except ValueError:\n        return jsonify({\"message\": \"Email already registered\"}), 400\n    return jsonify({\"email\": \"%s\" % email, \"message\": \"User created\"})\n@app.route(\"/sessions\", methods=[\"POST\"], strict_slashes=False)\ndef login():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def login():\n    \"\"\"Login a valid user and set a session id\"\"\"\n    email, password = request.form.get('email'), request.form.get('password')\n    if AUTH.valid_login(email=email, password=password):\n        res = make_response(\n            jsonify({\"email\": \"%s\" % email, \"message\": \"Logged in\"}))\n        res.set_cookie(\"session_id\", AUTH.create_session(email))\n        return res\n    abort(401)\n@app.route(\"/sessions\", methods=[\"DELETE\"], strict_slashes=False)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def logout():\n    \"\"\"Logs out a login user\"\"\"\n    session_id = request.cookies.get(\"session_id\")\n    user = AUTH.get_user_from_session_id(session_id)\n    if user is not None:\n        AUTH.destroy_session(user.id)\n        return redirect(\"/\")\n    abort(403)\n@app.route(\"/profile\", strict_slashes=False)\ndef profile():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "profile",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def profile():\n    \"\"\"Gets and returns user profile\"\"\"\n    session_id = request.cookies.get(\"session_id\")\n    user = AUTH.get_user_from_session_id(session_id)\n    if user:\n        return jsonify({\"email\": user.email})\n    abort(403)\n@app.route(\"/reset_password\", methods=[\"POST\"], strict_slashes=False)\ndef get_reset_password_token():\n    \"\"\"Reset password route\"\"\"",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_reset_password_token",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_reset_password_token():\n    \"\"\"Reset password route\"\"\"\n    email = request.form.get(\"email\")\n    try:\n        reset_token = AUTH.get_reset_password_token(email)\n    except ValueError:\n        abort(403)\n    return jsonify({\"email\": \"%s\" % email, \"reset_token\": \"%s\" % reset_token})\n@app.route(\"/reset_password\", methods=[\"PUT\"], strict_slashes=False)\ndef update_password():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "update_password",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def update_password():\n    \"\"\"Update password route\"\"\"\n    email = request.form.get(\"email\")\n    reset_token = request.form.get(\"reset_token\")\n    new_password = request.form.get(\"new_password\")\n    try:\n        AUTH.update_password(reset_token, new_password)\n        return jsonify({\"email\": \"%s\" % email, \"message\": \"Password updated\"})\n    except Exception:\n        pass",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "AUTH = Auth()\napp = Flask(__name__)\n@app.errorhandler(401)\ndef unauthorized_401(error) -> str:\n    \"\"\"Unauthorized error handler\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized_403(error) -> str:\n    \"\"\"Forbidden error handler\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n@app.errorhandler(401)\ndef unauthorized_401(error) -> str:\n    \"\"\"Unauthorized error handler\"\"\"\n    return jsonify({\"error\": \"Unauthorized\"}), 401\n@app.errorhandler(403)\ndef unauthorized_403(error) -> str:\n    \"\"\"Forbidden error handler\"\"\"\n    return jsonify({\"error\": \"Forbidden\"}), 403\n@app.route(\"/\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "Auth",
+        "kind": 6,
+        "importPath": "auth",
+        "description": "auth",
+        "peekOfCode": "class Auth:\n    \"\"\"Auth class to interact with the authentication database.\n    \"\"\"\n    def __init__(self):\n        self._db = DB()\n    def register_user(self, email: str, password: str) -> User:\n        \"\"\"Register a new user\"\"\"\n        try:\n            user = self._db.find_user_by(email=email)\n        except NoResultFound:",
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "DatabaseManager",
+        "kind": 6,
+        "importPath": "db",
+        "description": "db",
+        "peekOfCode": "class DatabaseManager:\n    \"\"\"Database Management\"\"\"\n    def __init__(self) -> None:\n        \"\"\"Initialize DB Connection\"\"\"\n        self._engine = create_engine(\"sqlite:///a.db\", echo=False)\n        Base.metadata.drop_all(self._engine)\n        Base.metadata.create_all(self._engine)\n        self.__session = None\n    @property\n    def _session(self) -> Session:",
+        "detail": "db",
+        "documentation": {}
+    },
+    {
+        "label": "register_user",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def register_user(email: str, password: str) -> None:\n    \"\"\"Tests the registration endpoint\"\"\"\n    url = DOMAIN % \"users\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"email\": email, \"message\": \"User created\"}\n    res = requests.post(url, data=payload)\n    assert res.status_code == 200\n    assert res.json() == expected\n    expected = {\"message\": \"Email already registered\"}\n    res = requests.post(url, data=payload)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "log_in_wrong_password",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def log_in_wrong_password(email: str, password: str) -> None:\n    \"\"\"Tests the login endpoint with incorrect password\"\"\"\n    url = DOMAIN % \"sessions\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"error\": \"Unauthorized\"}\n    res = requests.post(url, data=payload)\n    assert res.status_code == 401\n    assert res.json() == expected\n    assert res.cookies == {}\n    return res.cookies.get(\"session_id\", None)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "profile_unlogged",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def profile_unlogged() -> None:\n    \"\"\"Tests the profile route with an unlogged user\"\"\"\n    url = DOMAIN % \"profile\"\n    expected = {\"error\": \"Forbidden\"}\n    res = requests.get(url, cookies=dict())\n    assert res.status_code == 403\n    assert res.json() == expected\ndef log_in(email: str, password: str) -> str:\n    \"\"\"Tests login with valid credentials\"\"\"\n    url = DOMAIN % \"sessions\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "log_in",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def log_in(email: str, password: str) -> str:\n    \"\"\"Tests login with valid credentials\"\"\"\n    url = DOMAIN % \"sessions\"\n    payload = [(\"email\", email), (\"password\", password)]\n    expected = {\"email\": \"%s\" % email, \"message\": \"Logged in\"}\n    res = requests.post(url, data=payload)\n    session_id = res.cookies.get(\"session_id\", None)\n    assert res.status_code == 200\n    assert res.json() == expected\n    assert session_id is not None",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "profile_logged",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def profile_logged(session_id: str) -> None:\n    \"\"\"Tests the profile route for a valid logged-in user\"\"\"\n    url = DOMAIN % \"profile\"\n    res = requests.get(url, cookies=dict(session_id=session_id))\n    assert res.status_code == 200\n    assert res.json().get(\"email\") is not None\ndef log_out(session_id: str) -> None:\n    \"\"\"Tests the logout call\"\"\"\n    url = DOMAIN % \"sessions\"\n    res = requests.delete(url, cookies=dict(session_id=session_id))",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "log_out",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def log_out(session_id: str) -> None:\n    \"\"\"Tests the logout call\"\"\"\n    url = DOMAIN % \"sessions\"\n    res = requests.delete(url, cookies=dict(session_id=session_id))\n    print(res.status_code)\n    assert res.status_code == 200\n    assert res.json() == {\"message\": \"Welcome\"}\ndef reset_password_token(email: str) -> str:\n    \"\"\"Tests the reset token route\"\"\"\n    url = DOMAIN % \"reset_password\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "reset_password_token",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def reset_password_token(email: str) -> str:\n    \"\"\"Tests the reset token route\"\"\"\n    url = DOMAIN % \"reset_password\"\n    res = requests.post(url, data={\"email\": email})\n    assert res.status_code == 200\n    reset_token = res.json().get(\"reset_token\")\n    assert isinstance(reset_token, str)\n    assert len(reset_token) > 0\n    return reset_token\ndef update_password(email: str, reset_token: str, new_password: str) -> None:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "update_password",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def update_password(email: str, reset_token: str, new_password: str) -> None:\n    \"\"\"Tests the password update route\"\"\"\n    url = DOMAIN % \"reset_password\"\n    payload = [\n        (\"email\", email),\n        (\"reset_token\", reset_token), (\"new_password\", new_password)]\n    expected = {\"email\": \"%s\" % email, \"message\": \"Password updated\"}\n    res = requests.put(url, data=payload)\n    assert res.status_code == 200\n    assert res.json() == expected",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "EMAIL = \"guillaume@holberton.io\"\nPASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "PASSWD",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "PASSWD = \"b4l0u\"\nNEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)\n    reset_token = reset_password_token(EMAIL)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "NEW_PASSWD",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "NEW_PASSWD = \"t4rt1fl3tt3\"\nif __name__ == \"__main__\":\n    register_user(EMAIL, PASSWD)\n    log_in_wrong_password(EMAIL, NEW_PASSWD)\n    profile_unlogged()\n    session_id = log_in(EMAIL, PASSWD)\n    profile_logged(session_id)\n    log_out(session_id)\n    reset_token = reset_password_token(EMAIL)\n    update_password(EMAIL, reset_token, NEW_PASSWD)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "user",
+        "description": "user",
+        "peekOfCode": "class User(Base):\n    \"\"\"User\"\"\"\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True)\n    email = Column(String(250), nullable=False)\n    hashed_password = Column(String(250), nullable=False)\n    session_id = Column(String(250), nullable=True)\n    reset_token = Column(String(250), nullable=True)",
+        "detail": "user",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "user",
+        "description": "user",
+        "peekOfCode": "Base = declarative_base()\nclass User(Base):\n    \"\"\"User\"\"\"\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True)\n    email = Column(String(250), nullable=False)\n    hashed_password = Column(String(250), nullable=False)\n    session_id = Column(String(250), nullable=True)\n    reset_token = Column(String(250), nullable=True)",
+        "detail": "user",
+        "documentation": {}
+    }
+]

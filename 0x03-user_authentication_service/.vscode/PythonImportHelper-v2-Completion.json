@@ -185,7 +185,7 @@
         "documentation": {}
     },
     {
-        "label": "User",
+        "label": "Base",
         "importPath": "user",
         "description": "user",
         "isExtraImport": true,
@@ -193,7 +193,7 @@
         "documentation": {}
     },
     {
-        "label": "Base",
+        "label": "User",
         "importPath": "user",
         "description": "user",
         "isExtraImport": true,
